@@ -22,20 +22,11 @@ class scrapper():
         print("logged out")
         
     def db_connection(self):
-        self.db = MySQLdb.connect(host="localhost",
-                                  user="root",
-                                  passwd="",
-                                  db="nse")
-        '''
-        'db'=> [
-        'driver'=>'mysql',
-        'host'=>'localhost',
-        'database'=>'oozacoke_scratch',
-        'username'=>'oozacoke_admin',/* oozacoke_admin */
-        'password'=>'zCcnOhdZA8XS',/* zCcnOhdZA8XS */
-        'collation'=>'utf_unicode_ci',
-        'prefix'=>''
-        '''
+        self.db = MySQLdb.connect(host="my_host",
+                                  user="my_user",
+                                  passwd="my_password",
+                                  db="my_database")
+        
         print("database connection established")
         
     def db_query(self, sql):
