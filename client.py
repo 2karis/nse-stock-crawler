@@ -3,11 +3,11 @@ import datetime
 from ticker_data import ticker_data
 from market_data import market_data
 
+username = ""
+password = ""
 
-
-
-t = ticker_data('karis','pray1236')
-m = market_data('karis','pray1236')
+t = ticker_data(username,password)
+m = market_data(username,password)
 while 1:
 	for s in (t, m):
 		s.db_connection()
@@ -21,5 +21,6 @@ while 1:
 	ts = time.time()
 	st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 	print('time collected :', st)
+	# this makes the program wait 15 minutes before each crawl
 	time.sleep(900)
 
