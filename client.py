@@ -45,9 +45,9 @@ def try_stocks(start_time, end_time, now_time):
         password = str(file.read())
         t = ticker_data('karis', password)
         m = market_data('karis', password)
-       # for s in (t, m):
-        #    s.login()
-       #     s.crawl_data()
+        #for s in (t, m):
+    	#    s.login()
+        #     s.crawl_data()
         #    print()
         ts = tt.time()
         st = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
