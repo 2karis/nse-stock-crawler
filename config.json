@@ -1,0 +1,12 @@
+"user":{
+    "brokerage":"brokerage",
+    "username":"username",
+    "password":"password",
+  },
+  "db":{
+    "host":"my_host",
+    "user":"my_user",
+    "passwd":"my_password",
+    "db":"my_database"
+  }
+}
