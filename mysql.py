@@ -1,8 +1,8 @@
 import MySQLdb
 
-db = MySQLdb.connect(host="ooza.co.ke",
-                     user="oozacoke_python",
-                     passwd="passwordforpython",
+db = MySQLdb.connect(host="88.99.93.223",
+                     user="oozacoke",
+                     passwd="5zLaOp429y",
                      db="oozacoke_scratch",
                      port=3306)
 
