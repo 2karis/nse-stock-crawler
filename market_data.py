@@ -41,7 +41,7 @@ class market_data(scrapper):
                 count = 1
                 sdarr.append(sec)
                 sec =[]
-        sql = "INSERT INTO market_details (security, last_price, demand_qty, demand_price, supply_price, supply_qty, last_qty, high, low) VALUES "
+        sql = "INSERT INTO market(security, last_price, demand_qty, demand_price, supply_price, supply_qty, last_qty, high, low) VALUES "
         for row in sdarr:
             sub_row = [row[2], row[8], row[9], row[10], row[11], row[12]]
             high_low = self.sortlist(sub_row)

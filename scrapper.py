@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import random
 import string
 
-
 class scrapper():
     def __init__(self, username, password):
         self.username = username
@@ -24,34 +23,26 @@ class scrapper():
         del self
         self.browser.follow_link()
         print("logged out")
-        
-    def db_connection(self):
-        self.db = MySQLdb.connect(host="my_host",
-                                  user="my_user",
-                                  passwd="my_password",
-                                  db="my_database")
-        
-        print("database connection established")
-        
+
     def db_query(self, sql):
+        self.db = MySQLdb.connect(host="localhost",
+                                  user="root",
+                                  passwd="",
+                                  db="oozacoke_scratch")
+        print("database connection established")
         self.db.query(sql)
         self.db.commit()   
         print("data collected")
-        
-    def db_close(self):
         self.db.close()
         print("closing connection")
 
-
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
-
 
     def write_password(self, password):
         f = open("pass.txt", "w+")
         f.write(password)
         f.close()
-
 
     def check_password(self):
         page = self.browser.get_current_page()

@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 # config file ignore
-config.json
+#config.json
 
 # C extensions
 *.so
