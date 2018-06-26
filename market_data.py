@@ -5,8 +5,8 @@ import time
 
 
 class market_data(scrapper):
-    def __init__(self, s,t):
-        super().__init__(s,t)
+    def __init__(self, c):
+        super().__init__(c)
         print("market scapper initialized")
 
         

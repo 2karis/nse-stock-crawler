@@ -5,16 +5,15 @@ import random
 import string
 
 class scrapper():
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
+    def __init__(self, config):
+        self.config = config
         self.browser = browser = mechanicalsoup.StatefulBrowser()
         
     def login(self):
-        self.browser.open("https://onlinetrading.nse.co.ke/tradeweb111/")
+        self.browser.open(self.config['brokerage']['link'])
         self.browser.select_form(nr=0)
-        self.browser['txtLogin'] = self.username
-        self.browser['txtPassword'] = self.password
+        self.browser['txtLogin'] = self.config['brokerage']['username']
+        self.browser['txtPassword'] = self.config['brokerage']['password']
         self.browser.submit_selected()
         print("logging in")
         self.check_password()
@@ -25,10 +24,10 @@ class scrapper():
         print("logged out")
 
     def db_query(self, sql):
-        self.db = MySQLdb.connect(host="localhost",
-                                  user="root",
-                                  passwd="",
-                                  db="oozacoke_scratch")
+        self.db = MySQLdb.connect(host=self.config['db']['host'],
+                                  user=self.config['db']['user'],
+                                  passwd=self.config['db']['password'],
+                                  db=self.config['db']['database'])
         print("database connection established")
         self.db.query(sql)
         self.db.commit()   
@@ -54,8 +53,8 @@ class scrapper():
             # save to file
             self.write_password(new_password)
             self.browser.select_form(nr=0)
-            self.browser['txtLoginID'] = self.username
-            self.browser['txtCurrPass'] = self.password
+            self.browser['txtLoginID'] = self.config['brokerage']['username']
+            self.browser['txtCurrPass'] =  self.config['brokerage']['password']
             self.browser['txtNewPass'] = new_password
             self.browser['txtConfirmPass'] = new_password
             self.browser.submit_selected()

@@ -3,6 +3,11 @@ from market_data import market_data
 import pytz
 import time as tt
 from datetime import datetime, timedelta, date, time
+import json
+from pprint import pprint
+
+with open('config.json') as f:
+    config = json.load(f)
 
 
 def getTimes():
@@ -16,10 +21,10 @@ def getTimes():
 
     end = midnight_without_tzinfo + timedelta(hours=17, minutes=30)
     now = datetime.now()
-#     print(midnight_without_tzinfo)
-#     print(midnight_with_tzinfo)
-#     print(start)
-#     print(end)
+    # print(midnight_without_tzinfo)
+    # print(midnight_with_tzinfo)
+    # print(start)
+    # print(end)
     return start, end, now
 
 
@@ -31,7 +36,7 @@ def isNowInTimePeriod(startTime, endTime, nowTime):
 
 
 def isWeekDay():
-    return datetime.today().weekday()<5
+    return datetime.today().weekday() < 5
 
 
 startTime, endTime, nowTime = getTimes()
@@ -43,8 +48,8 @@ def try_stocks(start_time, end_time, now_time):
     if isWeekDay():
         file = open('pass.txt', 'r')
         password = str(file.read())
-        t = ticker_data('karis', password)
-        m = market_data('karis', password)
+        t = ticker_data(config)
+        m = market_data(config)
 
         for s in (t, m):
             s.login()
@@ -55,7 +60,7 @@ def try_stocks(start_time, end_time, now_time):
         print('time collected :', st)
     else:
         print("bad time")
-    tt.sleep(86400)#900
+    tt.sleep(5)#900 86400
     now_time = datetime.now()
     print(start_time, end_time, now_time)
     try_stocks(start_time, end_time, now_time)
