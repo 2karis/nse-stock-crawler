@@ -1,10 +1,4 @@
 {
-  "db":{
-    "host":"localhost",
-    "user":"root",
-    "password":"",
-    "database":"oozacoke_scratch"
-  },
   "brokerage":{
     "link":"https://onlinetrading.nse.co.ke/TradeWeb111/",
     "username":"karis",

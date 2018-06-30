@@ -3,6 +3,10 @@ import MySQLdb
 from bs4 import BeautifulSoup
 import random
 import string
+import requests
+import json
+
+
 
 class scrapper():
     def __init__(self, config):
@@ -23,17 +27,11 @@ class scrapper():
         self.browser.follow_link()
         print("logged out")
 
-    def db_query(self, sql):
-        self.db = MySQLdb.connect(host=self.config['db']['host'],
-                                  user=self.config['db']['user'],
-                                  passwd=self.config['db']['password'],
-                                  db=self.config['db']['database'])
-        print("database connection established")
-        self.db.query(sql)
-        self.db.commit()   
-        print("data collected")
-        self.db.close()
-        print("closing connection")
+
+    def api_post(self, link, data):
+        r = requests.post(link, data=json.dumps(data))
+        print(r.text)
+
 
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))

@@ -45,22 +45,22 @@ startTime, endTime, nowTime = getTimes()
 def try_stocks(start_time, end_time, now_time):
     #if isWeekDay() and isNowInTimePeriod(start_time, end_time, now_time):
 
-    if isWeekDay():
-        file = open('pass.txt', 'r')
-        password = str(file.read())
-        t = ticker_data(config)
-        m = market_data(config)
+    #if isWeekDay():
+    file = open('pass.txt', 'r')
+    password = str(file.read())
+    t = ticker_data(config)
+    m = market_data(config)
 
-        for s in (t, m):
-            s.login()
-            s.crawl_data()
-            print()
-        ts = tt.time()
-        st = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-        print('time collected :', st)
-    else:
-        print("bad time")
-    tt.sleep(5)#900 86400
+    for s in (t, m):
+        s.login()
+        s.crawl_data()
+        print()
+    ts = tt.time()
+    st = datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    print('time collected :', st)
+# else:
+    print("bad time")
+    tt.sleep(86400)#900 86400
     now_time = datetime.now()
     print(start_time, end_time, now_time)
     try_stocks(start_time, end_time, now_time)

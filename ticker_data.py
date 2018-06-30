@@ -17,17 +17,17 @@ class ticker_data(scrapper):
         div = soup.find("div", {"class": "CSPLTickerContainer"})
         ul =  div.find("ul")
         li =  ul.find("li")
-        sql = "INSERT INTO ticker (security, price, price_change) VALUES "
+        tickers=[]
+
         for li in ul:
             combo = li.text.split('|', 1)[0]
             security_price, change = combo.split(' ')
             security = re.split('(\d+)',security_price)
             price = ''.join(security[1:4])
             #items.append([security[0] ,price , change])
-            sql = sql + "('"+security[0]+"', "+ price+", "+change+"),"
-        sql = sql[:-1] + ";"
-        self.db_query(sql)
-        
+            tickers.append({'security': security[0], 'price': price, 'price_change': change})
+
+        self.api_post("http://localhost/ooza/public_html/postTickerData", tickers)
         print("ticker data collected")
 
 

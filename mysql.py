@@ -1,13 +1,14 @@
-import MySQLdb
+import requests
+import json
 
-db = MySQLdb.connect(host="88.99.93.223",
-                     user="oozacoke_admin",
-                     passwd="zCcnOhdZA8XS",
-                     db="oozacoke_scratch",
-                     port=3306)
+headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
 
-print("database connection established")
-db.query("""SELECT * FROM security""")
-r = db.use_result()
-print(r.fetch_row())
-db.close()
+ticker = [{"security":"ARM","price":13.4,"price_change":0.2},{"security":"BAMB","price":170,"price_change":0}]
+
+payload = {
+    "ticker": ticker
+    }
+
+r = requests.post("http://localhost/ooza/public_html/postTickerData", data=json.dumps(ticker))
+
+print(r)

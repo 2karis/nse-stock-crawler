@@ -41,13 +41,23 @@ class market_data(scrapper):
                 count = 1
                 sdarr.append(sec)
                 sec =[]
-        sql = "INSERT INTO market(security, last_price, demand_qty, demand_price, supply_price, supply_qty, last_qty, high, low) VALUES "
+        markets=[]
         for row in sdarr:
             sub_row = [row[2], row[8], row[9], row[10], row[11], row[12]]
             high_low = self.sortlist(sub_row)
-            sql = sql + "( '"+row[0]+"', "+ row[2]+", "+row[5]+", "+row[6]+", "+row[8]+", "+row[7]+", "+row[4]+", "+max(high_low)+", "+min(high_low)+"),"
-        sql = sql[:-1] + ";"    
-        self.db_query(sql)
+            markets.append({"security": row[0],
+                            "last_price": row[2],
+                            "demand_qty": row[5],
+                            "demand_price": row[6],
+                            "supply_price": row[8],
+                            "supply_qty": row[7],
+                            "last_qty": row[4],
+                            "high": max(high_low),
+                            "low": min(high_low)
+                            })
+
+        self.api_post("http://localhost/ooza/public_html/postMarketData", markets)
+
 
         print("market data collected")
     def logout(self):
