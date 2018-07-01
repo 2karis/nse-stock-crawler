@@ -60,6 +60,7 @@ class market_data(scrapper):
 
 
         print("market data collected")
+
     def logout(self):
         del self
         self.browser.follow_link()

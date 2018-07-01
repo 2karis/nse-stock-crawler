@@ -37,9 +37,11 @@ class scrapper():
         return ''.join(random.choice(chars) for _ in range(size))
 
     def write_password(self, password):
-        f = open("pass.txt", "w+")
-        f.write(password)
-        f.close()
+        self.config["brokerage"]["password"] = password
+
+        with open("config.json", "w") as jsonFile:
+            json.dump(self.config, jsonFile)
+
 
     def check_password(self):
         page = self.browser.get_current_page()
