@@ -1,5 +1,4 @@
 import mechanicalsoup
-import MySQLdb
 from bs4 import BeautifulSoup
 import random
 import string
