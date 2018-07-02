@@ -10,10 +10,10 @@ import json
 class scrapper():
     def __init__(self, config):
         self.config = config
-        self.browser = browser = mechanicalsoup.StatefulBrowser()
+        self.browser = mechanicalsoup.StatefulBrowser()
         
     def login(self):
-        self.browser.open(self.config['brokerage']['link'])
+        self.browser.open(self.config['brokerage']['login'])
         self.browser.select_form(nr=0)
         self.browser['txtLogin'] = self.config['brokerage']['username']
         self.browser['txtPassword'] = self.config['brokerage']['password']

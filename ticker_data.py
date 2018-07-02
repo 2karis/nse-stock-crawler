@@ -11,7 +11,7 @@ class ticker_data(scrapper):
 
         
     def crawl_data(self):
-        self.browser.open("https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx")
+        self.browser.open(self.config['brokerage']['ticker'])
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
         div = soup.find("div", {"class": "CSPLTickerContainer"})
@@ -27,7 +27,7 @@ class ticker_data(scrapper):
             #items.append([security[0] ,price , change])
             tickers.append({'security': security[0], 'price': price, 'price_change': change})
 
-        self.api_post("http://localhost/ooza/public_html/postTickerData", tickers)
+        self.api_post(self.config['brokerage']['post_ticker'], tickers)
         print("ticker data collected")
 
 

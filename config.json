@@ -2,6 +2,12 @@
   "brokerage":{
     "link":"https://onlinetrading.nse.co.ke/TradeWeb111/",
     "username":"karis",
-    "password":"wave1236"
+    "password":"wave1236",
+    "login":"https://onlinetrading.nse.co.ke/tradeweb111/login.aspx",
+    "ticker":"https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx",
+    "market":"https://onlinetrading.nse.co.ke/tradeweb111/MarketDetails.aspx?wl=Default",
+    "post_ticker":"http://localhost/OOZA/public_html/postTickerData",
+    "post_market":"http://localhost/OOZA/public_html/postMarketData"
+
   }
 }

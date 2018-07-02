@@ -11,7 +11,7 @@ class market_data(scrapper):
 
         
     def crawl_data(self):
-        self.browser.open('https://onlinetrading.nse.co.ke/tradeweb111/MarketDetails.aspx?wl=Default')
+        self.browser.open(self.config['brokerage']['market'])
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
         script = soup.find_all("script")
@@ -56,7 +56,7 @@ class market_data(scrapper):
                             "low": min(high_low)
                             })
 
-        self.api_post("http://localhost/ooza/public_html/postMarketData", markets)
+        self.api_post(self.config['brokerage']['post_market'], markets)
 
 
         print("market data collected")
