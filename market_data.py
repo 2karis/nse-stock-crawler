@@ -55,6 +55,7 @@ class market_data(scrapper):
                             "high": max(high_low),
                             "low": min(high_low)
                             })
+        print("posting to : ", self.config['brokerage']['post_market'])
 
         self.api_post(self.config['brokerage']['post_market'], markets)
 

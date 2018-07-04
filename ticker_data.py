@@ -27,6 +27,8 @@ class ticker_data(scrapper):
             #items.append([security[0] ,price , change])
             tickers.append({'security': security[0], 'price': price, 'price_change': change})
 
+        print("posting to : ", self.config['brokerage']['post_ticker'])
+
         self.api_post(self.config['brokerage']['post_ticker'], tickers)
         print("ticker data collected")
 

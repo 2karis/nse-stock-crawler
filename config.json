@@ -6,8 +6,8 @@
     "login":"https://onlinetrading.nse.co.ke/tradeweb111/login.aspx",
     "ticker":"https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx",
     "market":"https://onlinetrading.nse.co.ke/tradeweb111/MarketDetails.aspx?wl=Default",
-    "post_ticker":"http://localhost/OOZA/public_html/postTickerData",
-    "post_market":"http://localhost/OOZA/public_html/postMarketData"
+    "post_ticker":"http://ooza.co.ke/postTickerData",
+    "post_market":"http://ooza.co.ke//postMarketData"
 
   }
 }
