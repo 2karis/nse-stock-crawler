@@ -29,7 +29,7 @@ class scrapper():
 
     def api_post(self, link, data):
         r = requests.post(link, data=json.dumps(data))
-        print(r.text)
+        print(r)
 
 
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
