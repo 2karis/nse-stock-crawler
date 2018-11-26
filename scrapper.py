@@ -4,6 +4,7 @@ import random
 import string
 import requests
 import json
+import time as tt
 
 
 
@@ -29,6 +30,7 @@ class scrapper():
 
     def api_post(self, link, data):
         r = requests.post(link, data=json.dumps(data))
+        #r = 200
         print(r)
 
 
@@ -58,4 +60,7 @@ class scrapper():
             self.browser['txtConfirmPass'] = new_password
             self.browser.submit_selected()
             print('password updated')
+            #wait some seconds 10 seconds
+            self.config = json.load(open('config.json'))
+            tt.sleep(10)  # 900 86400
             self.login()
