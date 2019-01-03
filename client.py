@@ -54,12 +54,13 @@ def try_stocks():
             config = json.load(f)
             t = ticker_data(config)
             m = market_data(config)
-
+            collected =0
             for s in (t, m):
                 s.login()
-                s.crawl_data()
-                print()
-            tt.sleep(300)#900 86400
+                collected = s.crawl_data()
+                print(collected)
+            if collected == 1:
+                tt.sleep(300)#900 86400
     # now_time = datetime.now()
     # print(start_time, end_time, now_time)
     # try_stocks(start_time, end_time, now_time)
