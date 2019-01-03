@@ -43,11 +43,23 @@ class scrapper():
         with open("config.json", "w") as jsonFile:
             json.dump(self.config, jsonFile)
 
+    def is_password_valid(self):
+        password_validity = self.config["brokerage"]["password_validity"]
+        if self.body.soup ==' Error : INVALID LOGIN':
+            password_validity = 0
+
+        self.config["brokerage"]["password_validity"] = password_validity
+
+        with open("config.json", "w") as jsonFile:
+            json.dump(self.config, jsonFile)
+        print(self.body.soup)
+        exit()
 
     def check_password(self):
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
         # if this is the change password page
+        print(soup)
         if soup.title.text == '\r\n\tChange Password\r\n':
             # generate new password
             new_password = self.password_generator()
