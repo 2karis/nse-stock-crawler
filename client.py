@@ -35,7 +35,7 @@ def is_in_time():
     nairobi_now = datetime.now(tz).time()
     nairobi_hour = nairobi_now.hour
     nairobi_minute = nairobi_now.minute
-    set_time = time(16, 52)
+    set_time = time(15, 31)
     time_hour = set_time.hour
     time_minute = set_time.minute
 

@@ -7,12 +7,11 @@ import json
 import time as tt
 
 
-
 class scrapper():
     def __init__(self, config):
         self.config = config
         self.browser = mechanicalsoup.StatefulBrowser()
-        
+
     def login(self):
         self.browser.open(self.config['brokerage']['login'])
         self.browser.select_form(nr=0)
@@ -21,18 +20,16 @@ class scrapper():
         self.browser.submit_selected()
         print("logging in")
         self.check_password()
-        
+
     def logout(self):
         del self
         self.browser.follow_link()
         print("logged out")
 
-
     def api_post(self, link, data):
         r = requests.post(link, data=json.dumps(data))
-        #r = 200
+        # r = 200
         print(r)
-
 
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))
@@ -42,18 +39,6 @@ class scrapper():
 
         with open("config.json", "w") as jsonFile:
             json.dump(self.config, jsonFile)
-
-    def is_password_valid(self):
-        password_validity = self.config["brokerage"]["password_validity"]
-        if self.body.soup ==' Error : INVALID LOGIN':
-            password_validity = 0
-
-        self.config["brokerage"]["password_validity"] = password_validity
-
-        with open("config.json", "w") as jsonFile:
-            json.dump(self.config, jsonFile)
-        print(self.body.soup)
-        exit()
 
     def check_password(self):
         page = self.browser.get_current_page()
@@ -67,12 +52,12 @@ class scrapper():
             self.write_password(new_password)
             self.browser.select_form(nr=0)
             self.browser['txtLoginID'] = self.config['brokerage']['username']
-            self.browser['txtCurrPass'] =  self.config['brokerage']['password']
+            self.browser['txtCurrPass'] = self.config['brokerage']['password']
             self.browser['txtNewPass'] = new_password
             self.browser['txtConfirmPass'] = new_password
             self.browser.submit_selected()
             print('password updated')
-            #wait some seconds 10 seconds
+            # wait some seconds 10 seconds
             self.config = json.load(open('config.json'))
             tt.sleep(10)  # 900 86400
             self.login()

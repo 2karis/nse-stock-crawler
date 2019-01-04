@@ -1,1 +1,10 @@
-{"brokerage": {"link": "https://onlinetrading.nse.co.ke/TradeWeb111/", "username": "karis", "password": "janu2019", "password_validity":"1", "login": "https://onlinetrading.nse.co.ke/tradeweb111/login.aspx", "ticker": "https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx", "market": "https://onlinetrading.nse.co.ke/tradeweb111/MarketDetails.aspx?wl=Default", "post_ticker": "http://ooza.co.ke/postTickerData", "post_market": "http://ooza.co.ke/postMarketData"}}
+{"brokerage":
+{"login": "https://onlinetrading.nse.co.ke/tradeweb111/login.aspx",
+  "username": "karis",
+  "password": "janu1236",
+  "market": "https://onlinetrading.nse.co.ke/tradeweb111/MarketDetails.aspx?wl=Default",
+  "post_market": "http://ooza.co.ke/postMarketData",
+  "link": "https://onlinetrading.nse.co.ke/TradeWeb111/",
+  "ticker": "https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx",
+  "post_ticker": "http://ooza.co.ke/postTickerData"}
+}
