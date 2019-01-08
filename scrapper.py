@@ -44,7 +44,7 @@ class scrapper():
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
         # if this is the change password page
-         if soup.title.text == '\r\n\tChange Password\r\n':
+        if soup.title.text == '\r\n\tChange Password\r\n':
             # generate new password
             new_password = self.password_generator()
             # save to file
