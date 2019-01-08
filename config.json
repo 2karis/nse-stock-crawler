@@ -6,5 +6,7 @@
   "post_market": "http://ooza.co.ke/postMarketData",
   "link": "https://onlinetrading.nse.co.ke/TradeWeb111/",
   "ticker": "https://onlinetrading.nse.co.ke/tradeweb111/TWHome.aspx",
-  "post_ticker": "http://ooza.co.ke/postTickerData"}
+  "post_ticker": "http://ooza.co.ke/postTickerData"
+
+}
 }

@@ -60,6 +60,7 @@ def try_stocks():
                 collected = s.crawl_data()
                 print(collected)
             if collected == 1:
+                print("time collected : ", datetime.now())
                 tt.sleep(300)#900 86400
     # now_time = datetime.now()
     # print(start_time, end_time, now_time)
