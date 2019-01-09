@@ -55,7 +55,7 @@ def try_stocks():
             t = ticker_data(config)
             m = market_data(config)
             collected =0
-            for s in (t, m):
+            for s in (m, t):
                 s.login()
                 collected = s.crawl_data()
                 print(collected)
