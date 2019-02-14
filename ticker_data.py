@@ -11,7 +11,7 @@ class ticker_data(scrapper):
 
         
     def crawl_data(self):
-        self.browser.open(self.config['brokerage']['ticker'])
+        self.browser.open(self.config['ticker'])
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
         if(soup.find("div", {"class": "CSPLTickerContainer"})):
@@ -28,9 +28,9 @@ class ticker_data(scrapper):
                 #items.append([security[0] ,price , change])
                 tickers.append({'security': security[0], 'price': price, 'price_change': change})
 
-            print("posting to : ", self.config['brokerage']['post_ticker'])
+            print("posting to : ", self.config['post_ticker'])
 
-            self.api_post(self.config['brokerage']['post_ticker'], tickers)
+            self.api_post(self.config['post_ticker'], tickers)
             print("ticker data collected")
 
             return 1

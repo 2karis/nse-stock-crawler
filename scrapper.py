@@ -4,7 +4,6 @@ import random
 import string
 import requests
 import json
-import time as tt
 
 
 class scrapper():
@@ -13,10 +12,10 @@ class scrapper():
         self.browser = mechanicalsoup.StatefulBrowser()
 
     def login(self):
-        self.browser.open(self.config['brokerage']['login'])
+        self.browser.open(self.config['login'])
         self.browser.select_form(nr=0)
-        self.browser['txtLogin'] = self.config['brokerage']['username']
-        self.browser['txtPassword'] = self.config['brokerage']['password']
+        self.browser['txtLogin'] = self.config['username']
+        self.browser['txtPassword'] = self.config['password']
         self.browser.submit_selected()
         print("logging in")
         self.check_password()
@@ -35,7 +34,7 @@ class scrapper():
         return ''.join(random.choice(chars) for _ in range(size))
 
     def write_password(self, password):
-        self.config["brokerage"]["password"] = password
+        self.config["password"] = password
 
         with open("config.json", "w") as jsonFile:
             json.dump(self.config, jsonFile)
@@ -50,13 +49,9 @@ class scrapper():
             # save to file
             self.write_password(new_password)
             self.browser.select_form(nr=0)
-            self.browser['txtLoginID'] = self.config['brokerage']['username']
-            self.browser['txtCurrPass'] = self.config['brokerage']['password']
+            self.browser['txtLoginID'] = self.config['username']
+            self.browser['txtCurrPass'] = self.config['password']
             self.browser['txtNewPass'] = new_password
             self.browser['txtConfirmPass'] = new_password
             self.browser.submit_selected()
             print('password updated')
-            # wait some seconds 10 seconds
-            self.config = json.load(open('config.json'))
-            tt.sleep(10)  # 900 86400
-            self.login()

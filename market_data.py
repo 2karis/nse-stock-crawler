@@ -11,7 +11,7 @@ class market_data(scrapper):
 
         
     def crawl_data(self):
-        self.browser.open(self.config['brokerage']['market'])
+        self.browser.open(self.config['market'])
         page = self.browser.get_current_page()
         soup = BeautifulSoup(str(page), 'lxml')
 
@@ -56,9 +56,9 @@ class market_data(scrapper):
                                 "high": max(high_low),
                                 "low": min(high_low)
                                 })
-            print("posting to : ", self.config['brokerage']['post_market'])
+            print("posting to : ", self.config['post_market'])
 
-            self.api_post(self.config['brokerage']['post_market'], markets)
+            self.api_post(self.config['post_market'], markets)
 
 
             print("market data collected")
