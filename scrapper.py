@@ -54,4 +54,4 @@ class scrapper():
             self.browser['txtNewPass'] = new_password
             self.browser['txtConfirmPass'] = new_password
             self.browser.submit_selected()
-            print('password updated')
+            print('password updated to ', new_password)

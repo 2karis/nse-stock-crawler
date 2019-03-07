@@ -57,7 +57,7 @@ def try_stocks():
             collected =0
             for s in (m, t):
                 s.login()
-                collected = s.crawl_data()
+                #collected = s.crawl_data()
                 print(collected)
             if collected == 1:
                 print("time collected : ", datetime.now())
