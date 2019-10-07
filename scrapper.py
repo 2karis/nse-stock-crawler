@@ -27,7 +27,6 @@ class scrapper():
 
     def api_post(self, link, data):
         r = requests.post(link, data=json.dumps(data))
-        # r = 200
         print(r)
 
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
@@ -37,7 +36,7 @@ class scrapper():
         self.config["password"] = password
 
         with open("config.json", "w") as jsonFile:
-            json.dump(self.config, jsonFile)
+            json.dump(self.config, jsonFile, indent=4, sort_keys=True)
 
     def check_password(self):
         page = self.browser.get_current_page()
