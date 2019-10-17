@@ -10,12 +10,12 @@ def is_week_day():
     return datetime.today().weekday() < 5
 
 #check if it's correct time
-def is_in_time():
+def is_in_time(hour, minute):
     tz = pytz.timezone('Africa/Nairobi')
     nairobi_now = datetime.now(tz).time()
     nairobi_hour = nairobi_now.hour
     nairobi_minute = nairobi_now.minute
-    set_time = time(15, 31)
+    set_time = time(int(hour), int(minute))
     time_hour = set_time.hour
     time_minute = set_time.minute
 
@@ -27,12 +27,18 @@ def is_in_time():
 
 
 print("crawler active")
+f1 = open('config_dev.json')
+config1 = json.load(f1)
+f1.close()
+hour = int(config1["hour"])
+minute = int(config1["minute"])
 while 1:
-    #if its weekday and correct time then crawl site
-    if is_week_day() and is_in_time():
+    if is_week_day() and is_in_time(hour,minute):
+    #if is_week_day():
         f = open('config.json')
-        #load configuration file
         config = json.load(f)
+        f.close()
+
         t = ticker_data(config)
         m = market_data(config)
         collected = 0
@@ -44,7 +50,7 @@ while 1:
             print("[",datetime.now()," ] info collected  ")
             print()
 
-            tt.sleep(300)
+            tt.sleep(config["sleep"])
         else:
             print("[", datetime.now(), " ] failed ")
             print()

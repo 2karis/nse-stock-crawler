@@ -6,5 +6,8 @@
   "password": "oct1236",
   "market": "https://onlinetrading.cbagroup.com/tradeweb/MarketDetails.aspx?wl=Default",
   "post_ticker": "http://localhost/OOZA/public_html/postTickerData",
-  "username": "karis"
+  "username": "karis",
+  "hour":2,
+  "minute":50,
+  "sleep":300
 }

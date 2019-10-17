@@ -1,1 +1,14 @@
-{"login": "https://onlinetrading.cbagroup.com/tradeweb/login.aspx", "link": "https://onlinetrading.cbagroup.com/tradeweb/", "ticker": "https://onlinetrading.cbagroup.com/tradeweb/TWHome.aspx", "post_market": "http://ooza.co.ke/postMarketData", "password": "oct1236", "market": "https://onlinetrading.cbagroup.com/tradeweb/MarketDetails.aspx?wl=Default", "post_ticker": "http://ooza.co.ke/postTickerData", "username": "karis"}
+{
+  "login": "https://onlinetrading.cbagroup.com/tradeweb/login.aspx",
+  "link": "https://onlinetrading.cbagroup.com/tradeweb/",
+  "ticker": "https://onlinetrading.cbagroup.com/tradeweb/TWHome.aspx",
+  "post_market": "http://ooza.co.ke/postMarketData",
+  "password": "oct1236",
+  "market": "https://onlinetrading.cbagroup.com/tradeweb/MarketDetails.aspx?wl=Default",
+  "post_ticker": "http://ooza.co.ke/postTickerData",
+  "username": "karis",
+  "hour":15,
+  "minute":31,
+  "sleep":300
+
+}
