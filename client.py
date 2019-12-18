@@ -27,7 +27,7 @@ def is_in_time(hour, minute):
 
 
 print("crawler active")
-f1 = open('config_dev.json')
+f1 = open('config.json')
 config1 = json.load(f1)
 f1.close()
 hour = int(config1["hour"])
