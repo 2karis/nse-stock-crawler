@@ -2,12 +2,11 @@
   "login": "https://onlinetrading.ncbagroup.com/tradeweb/login.aspx",
   "link": "https://onlinetrading.ncbagroup.com/tradeweb/",
   "ticker": "https://onlinetrading.ncbagroup.com/tradeweb/TWHome.aspx",
-  "post_market": "http://ooza.co.ke/postMarketData",
+  "post_market": "http://nse-api.000webhostapp.com/postMarketData",
   "password": "dece1236",
   "market": "https://onlinetrading.ncbagroup.com/tradeweb/MarketDetails.aspx?wl=Default",
-  "post_ticker": "http://ooza.co.ke/postTickerData",
   "username": "kariukiigitau",
-  "hour":3,
-  "minute":48,
+  "hour":15,
+  "minute":35,
   "sleep":300
 }

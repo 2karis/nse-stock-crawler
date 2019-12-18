@@ -37,7 +37,7 @@ while 1:
     if is_week_day() and is_in_time(hour,minute):
         #if  is_in_time(hour,minute):
         #if is_week_day():
-        f = open('config_dev.json')
+        f = open('config.json')
         config = json.load(f)
         f.close()
 
@@ -47,10 +47,10 @@ while 1:
         page = market.fetch_data()
         arr = market.clean_data(page)
         sdarr = market.organize_data(arr)
-
+        collected = 0
         market.post_data(sdarr)
         tt.sleep(config["sleep"])
-        collected = 0
+
 
         print(collected)
         if collected == 1:
