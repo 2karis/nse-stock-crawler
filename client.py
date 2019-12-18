@@ -32,9 +32,10 @@ config1 = json.load(f1)
 f1.close()
 hour = int(config1["hour"])
 minute = int(config1["minute"])
-while 1:
-    #if 1:
-    if is_week_day() and is_in_time(hour,minute):
+if 1:
+#while 1:
+    if 1:
+    #if is_week_day() and is_in_time(hour,minute):
         #if  is_in_time(hour,minute):
         #if is_week_day():
         f = open('config.json')
