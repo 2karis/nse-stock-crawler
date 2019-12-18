@@ -26,8 +26,9 @@ class scrapper():
         print("logged out")
 
     def api_post(self, link, data):
-        r = requests.post(link, data=json.dumps(data))
-        print(r)
+        #r = requests.post(link, data=json.dumps(data))
+        #print(r)
+        print(data)
 
     def password_generator(self, size=8, chars=string.ascii_lowercase + string.digits):
         return ''.join(random.choice(chars) for _ in range(size))

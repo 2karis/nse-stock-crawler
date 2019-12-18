@@ -33,24 +33,31 @@ f1.close()
 hour = int(config1["hour"])
 minute = int(config1["minute"])
 while 1:
+    #if 1:
     if is_week_day() and is_in_time(hour,minute):
-    #if is_week_day():
-        f = open('config.json')
+        #if  is_in_time(hour,minute):
+        #if is_week_day():
+        f = open('config_dev.json')
         config = json.load(f)
         f.close()
 
-        t = ticker_data(config)
-        m = market_data(config)
+        market = market_data(config)
+        page = market.fetch_data()
+
+        page = market.fetch_data()
+        arr = market.clean_data(page)
+        sdarr = market.organize_data(arr)
+
+        market.post_data(sdarr)
+        tt.sleep(config["sleep"])
         collected = 0
-        for s in (m, t):
-            s.login()
-            collected = s.crawl_data()
-            print(collected)
+
+        print(collected)
         if collected == 1:
             print("[",datetime.now()," ] info collected  ")
             print()
 
-            tt.sleep(config["sleep"])
+
         else:
             print("[", datetime.now(), " ] failed ")
             print()

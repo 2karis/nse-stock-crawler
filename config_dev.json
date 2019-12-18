@@ -1,13 +1,12 @@
 {
-  "login": "https://onlinetrading.cbagroup.com/tradeweb/login.aspx",
-  "link": "https://onlinetrading.cbagroup.com/tradeweb/",
-  "ticker": "https://onlinetrading.cbagroup.com/tradeweb/TWHome.aspx",
-  "post_market": "http://localhost/OOZA/public_html/postMarketData",
-  "password": "oct1236",
-  "market": "https://onlinetrading.cbagroup.com/tradeweb/MarketDetails.aspx?wl=Default",
-  "post_ticker": "http://localhost/OOZA/public_html/postTickerData",
-  "username": "karis",
-  "hour":2,
-  "minute":50,
+  "login": "https://onlinetrading.ncbagroup.com/tradeweb/login.aspx",
+  "link": "https://onlinetrading.ncbagroup.com/tradeweb/",
+  "ticker": "https://onlinetrading.ncbagroup.com/tradeweb/TWHome.aspx",
+  "post_market": "http://localhost/nse-api/public_html/postMarketData",
+  "password": "dece1236",
+  "market": "https://onlinetrading.ncbagroup.com/tradeweb/MarketDetails.aspx?wl=Default",
+  "username": "kariukiigitau",
+  "hour":15,
+  "minute":35,
   "sleep":300
 }
