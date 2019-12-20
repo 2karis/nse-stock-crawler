@@ -27,24 +27,17 @@ def is_in_time(hour, minute):
 
 
 print("crawler active")
-f1 = open('config.json')
-config1 = json.load(f1)
-f1.close()
-hour = int(config1["hour"])
-minute = int(config1["minute"])
-if 1:
-#while 1:
+
+#if 1:
+while 1:
+    f = open('config.json')
+    config = json.load(f)
+    f.close()
+    hour = int(config["hour"])
+    minute = int(config["minute"])
     if 1:
     #if is_week_day() and is_in_time(hour,minute):
-        #if  is_in_time(hour,minute):
-        #if is_week_day():
-        f = open('config.json')
-        config = json.load(f)
-        f.close()
-
         market = market_data(config)
-        page = market.fetch_data()
-
         page = market.fetch_data()
         arr = market.clean_data(page)
         sdarr = market.organize_data(arr)
