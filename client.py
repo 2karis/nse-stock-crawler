@@ -35,8 +35,8 @@ while 1:
     f.close()
     hour = int(config["hour"])
     minute = int(config["minute"])
-    if 1:
-    #if is_week_day() and is_in_time(hour,minute):
+    #if 1:
+    if is_week_day() and is_in_time(hour,minute):
         market = market_data(config)
         page = market.fetch_data()
         arr = market.clean_data(page)
