@@ -3,3 +3,4 @@ keeping up to date with stocks can be a haslte for investros, thats why my scrip
 you need to use your brokerage account info to login.
 it only works with cba's brokerage account 
 it should in theory work with the other brokerage firms as well. but that would require some modificcation to the source code.
+remember to update username and password in config
